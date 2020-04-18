@@ -1,0 +1,38 @@
+import React, { Component } from 'react';
+import NoteTable from './NoteTable';
+
+class SpeechManager extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            notes: [{key: '', value: ''}]
+        };
+    }
+
+    componentWillMount() {
+        fetch('spider',{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+          })
+          .then(function(response){
+              return response.json();
+          }).then(function(body){
+            this.setState({ notes: body });
+          }.bind(this)).catch(e => {
+              console.error(e.message);
+          });
+    }
+
+    render() {
+        return (
+            <div>
+                { this.state.notes[0].key != '' && 
+                    <NoteTable notes={this.state.notes} />
+                }
+            </div>
+        );
+    }
+}
+
+export default SpeechManager;
