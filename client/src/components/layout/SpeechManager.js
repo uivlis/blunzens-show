@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import NoteTable from './NoteTable';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 class SpeechManager extends Component {
+    
     constructor(props) {
         super(props);
         
@@ -27,7 +29,9 @@ class SpeechManager extends Component {
     render() {
         return (
             <div>
-                { this.state.notes[0].key != '' && 
+                { this.state.notes[0].key === '' ? 
+                    <LinearProgress />
+                    :
                     <NoteTable notes={this.state.notes} />
                 }
             </div>

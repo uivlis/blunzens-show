@@ -5,7 +5,7 @@ import { normalizeColor } from "grommet/utils";
 import { rgba } from "polished";
 
 import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
+import SpeechManager from "./components/layout/SpeechManager";
 
 import "./App.css";
 
@@ -72,7 +72,7 @@ export default function() {
         <Router>
           <div className="App">
             <Navbar />
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={SpeechManager} />
           </div>
         </Router>
     </Grommet>
