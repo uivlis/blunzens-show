@@ -25,7 +25,7 @@ let blz;
 bluzelle({
   address: config.address,
   mnemonic: config.mnemonic,
-  uuid: "blunzens",
+  uuid: "blunzens-v0.1.0",
   endpoint: config.endpoint,
   chain_id: config.chain_id
 }).then(res => {

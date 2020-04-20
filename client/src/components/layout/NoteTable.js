@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -51,7 +49,7 @@ const NoteTable = (props) => {
 
     return (
         <div className={classes.root}>
-            <GridList cellHeight={200} spacing={10} className={classes.gridList} cols={4}>
+            <GridList cellHeight={`100%`} spacing={10} className={classes.gridList} cols={4}>
                 {notes.map((note) => (
                     <GridListTile key={note.key} cols={1} rows={1}>
                         <Card className={classes.card}>
@@ -60,19 +58,19 @@ const NoteTable = (props) => {
                                     {`Censorability: ${(JSON.parse(note.value).censorability * 100).toFixed(2)}%`}
                                 </Typography>
                                 <Typography variant="h5" component="h2">
-                                    {JSON.parse(note.value).author}
+                                    {JSON.parse(note.value).title}
                                 </Typography>
                                 <Typography className={classes.pos} color="textSecondary">
-                                    {JSON.parse(note.value).platform}, {JSON.parse(note.value).date}
+                                    duckduckgo.com
                                 </Typography>
                                 <Typography variant="body2" component="p">
                                     {JSON.parse(note.value).text}
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <a href={JSON.parse(note.value).tempLink} target="_blank">
-                                    <Button size="small" >See Original</Button>
-                                </a>
+                                <Button variant="contained" color="secondary" href={`https://${JSON.parse(note.value).tempLink}`} target="_blank">
+                                    See Original
+                                </Button>
                             </CardActions>
                         </Card>
                     </GridListTile>
