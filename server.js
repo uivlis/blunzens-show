@@ -1,8 +1,8 @@
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
-const { bluzelle } = require('./blzjs/src/main.js');
-
+const { bluzelle } = require("bluzelle");
+require('dotenv').config();
 const app = express();
 
 // Bodyparser middleware
@@ -17,22 +17,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// BluzelleDB Config
-const config = require("./config/blz-config");
-
-let blz;
-
-bluzelle({
-  address: config.address,
-  mnemonic: config.mnemonic,
-  uuid: "blunzens-v0.1.0",
-  endpoint: config.endpoint,
-  chain_id: config.chain_id
-}).then(res => {
-  blz = res;
-}).catch (e => {
-  console.error(e.message);
-});
+let blz = bluzelle({
+  mnemonic: process.env.BLZ_MNEMONIC,
+  uuid: Date.now().toString(),
+  endpoint: process.env.BLZ_ENDPOINT,
+  chain_id: process.env.BLZ_CHAIN_ID
+})
 
 // Routes
 app.get("/spider", function(req, res, err) {

@@ -29,7 +29,7 @@ class SpeechManager extends Component {
     render() {
         return (
             <div>
-                { this.state.notes[0].key === '' ? 
+                { Object(this.state.notes[0])["key"] == "" ? 
                     <LinearProgress />
                     :
                     <NoteTable notes={this.state.notes} />

@@ -7,21 +7,18 @@ Created using [this](https://github.com/bcbrian/mern-template).
 
 ## Setup
 
-```javascript
-// Add bluzelle to the project
-npm run prep
-```
+Be sure to have run this code: https://github.com/uivlis/blunzens-scrap at least once before running this one.
 
-Copy `./blzjs/samples/blz-config.js.sample` to `./config/blz-config.js` and add your Bluzelle credentials.
-You must have a Bluzelle testnet account. For more info, visit https://docs.bluzelle.com/developers/bluzelle-db/getting-started-with-testnet.
+Copy `.env.example` to `.env` and add your BLZ mnemonic.
+You must also have a BLZ wallet. To create one, visit https://staking.bluzelle.com/.
 
 ## Quickstart
 ```javascript
 // Install dependencies for server & client
 npm install && npm run client-install
 
-// Run client & server with concurrently
-npm run start:dev
+// Run client & server concurrently
+npm run start
 
 // Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
