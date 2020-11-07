@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 
 let blz = bluzelle({
   mnemonic: process.env.BLZ_MNEMONIC,
-  uuid: Date.now().toString(),
+  uuid: "Blunzens",
   endpoint: process.env.BLZ_ENDPOINT,
   chain_id: process.env.BLZ_CHAIN_ID
 })

@@ -55,20 +55,20 @@ const NoteTable = (props) => {
                         <Card className={classes.card}>
                             <CardContent>
                                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                    {`Censorability: ${(note.value.censorability * 100).toFixed(2)}%`}
+                                    {`Censorability: ${(JSON.parse(note.value).censorability * 100).toFixed(2)}%`}
                                 </Typography>
                                 <Typography variant="h5" component="h2">
-                                    {note.value.title}
+                                    {JSON.parse(note.value).title}
                                 </Typography>
                                 <Typography className={classes.pos} color="textSecondary">
                                     duckduckgo.com
                                 </Typography>
                                 <Typography variant="body2" component="p">
-                                    {note.value.text}
+                                    {JSON.parse(note.value).text}
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant="contained" color="secondary" href={`https://${note.value.tempLink}`} target="_blank">
+                                <Button variant="contained" color="secondary" href={`https://${JSON.parse(note.value).tempLink}`} target="_blank">
                                     See Original
                                 </Button>
                             </CardActions>
