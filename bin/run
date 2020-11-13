@@ -1,0 +1,6 @@
+#!/bin/bash
+set -exu
+
+docker-compose up -d blunzens-show
+
+python -m webbrowser "http://localhost:3000"
