@@ -13,17 +13,17 @@ class SpeechManager extends Component {
     }
 
     componentWillMount() {
-        fetch('spider',{
+        fetch('/spider',{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
-          })
-          .then(function(response){
-              return response.json();
-          }).then(function(body){
+        })
+        .then(function(response){
+            return response.json();
+        }).then(function(body){
             this.setState({ notes: body });
-          }.bind(this)).catch(e => {
-              console.error(e.message);
-          });
+        }.bind(this)).catch(e => {
+            console.error(e.message);
+        });
     }
 
     render() {

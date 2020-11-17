@@ -22,10 +22,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://spider:5000",
   "browserslist": [
     ">0.2%",
     "not dead",
