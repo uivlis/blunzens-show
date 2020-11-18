@@ -2,14 +2,10 @@ version: '3'
 services:
     show:
       build: ./client
-      ports: 
-        - 3000:3000
       stdin_open: true
-      expose:
-        - 3000
-      links:
+      depends_on:
         - spider
     spider:
-        build: .
-        expose:
-          - 5000
+      build: .
+      ports:
+        - 5000:5000

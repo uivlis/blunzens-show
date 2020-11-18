@@ -5,9 +5,9 @@ set -exu
 
 docker-compose up --build -d
 
-until curl http://localhost:3000
+until curl http://localhost:5000
     do echo "Waiting for the services to start..."
     sleep 3
 done
 
-python -m webbrowser "http://localhost:3000"
+python -m webbrowser "http://localhost:5000"

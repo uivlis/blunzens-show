@@ -14,15 +14,22 @@ let blz = bluzelle({
   chain_id: process.env.BLZ_CHAIN_ID
 })
 
+app.use(express.static(path.join(__dirname, 'client/build')))
+
 // Routes
 app.get("/spider", function(req, res, err) {
   blz.keyValues().then(r => {
+    console.log(req, r);
     res.send(r);
   }).catch(e => {
     res.sendStatus(500);
     console.log(e.message);
   });
 });
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
 
 const port = process.env.PORT || 5000;
 
