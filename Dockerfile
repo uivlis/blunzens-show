@@ -8,9 +8,15 @@ COPY package.json .
 
 RUN npm install
 
+RUN mkdir client 
+
+COPY client/package.json client/package.json
+
+RUN cd client && npm install
+
 COPY . .
 
-EXPOSE 5000
+RUN cd client && npm run build
 
 CMD ["npm", "run", "start"]
 
